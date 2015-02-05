@@ -15,7 +15,7 @@ module BikeContainer
   end
 
   def full?
-    true
+    bike_rack.count == bike_rack_capacity
   end
 
   def available_bikes
@@ -24,6 +24,10 @@ module BikeContainer
 
   def release
     bike_rack.pop
+  end
+
+  def empty? 
+  	bike_rack.count == 0
   end
 
 end

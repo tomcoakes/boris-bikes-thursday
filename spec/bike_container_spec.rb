@@ -28,7 +28,7 @@ end
   it "should know when its full" do
     expect(holder.bike_rack.count).to eq(0)
     20.times {add_one_bike}
-    expect(holder.full?).to eq true
+    expect(holder).to be_full
   end
 
   it "should know how many available bikes there are" do
@@ -42,7 +42,15 @@ end
     add_one_bike
     holder.release
     expect(holder.bike_rack.count).to eq(0)
+	end
 
-  end
+	it "should know when it is empty" do
+		expect(holder).to be_empty
+		add_one_bike
+		expect(holder).not_to be_empty
+	end
+
+	
+
 
 end
